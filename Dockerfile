@@ -8,9 +8,6 @@ RUN npm install
 COPY frontend/ /app/
 RUN npm run build
 
-# Debugging: Show the output of the build step
-RUN echo "Build output directory contents:" && ls -alh /app/dist
-
 FROM openjdk:17-jdk-slim AS backend-build
 RUN apt-get update && apt-get install -y maven
 
