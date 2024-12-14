@@ -9,14 +9,11 @@ import {
 import {
   HiDatabase,
   HiCollection,
-  HiDocumentText,
   HiSearch,
   HiCheckCircle,
   HiXCircle,
   HiClipboardList,
   HiHome,
-  HiCog,
-  HiTrash,
 } from "react-icons/hi"; // Icons from react-icons
 
 const App: React.FC = () => {
