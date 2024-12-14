@@ -1,7 +1,9 @@
-# MongoLens
+<p align="center">
+  <img src="./assets/icons/500x500.png" alt="MongoLens Logo" width="120" height="120" />
+</p>
 
 <p align="center">
-  <img src="./assets/icons/500x500.png" alt="MongoLens Logo" width="240" height="240" />
+# MongoLens
 </p>
 
 MongoLens is an open-source tool for visualizing and interacting with MongoDB databases. It features a React frontend and a Java 17 backend.
