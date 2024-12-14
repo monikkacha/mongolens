@@ -1,6 +1,5 @@
 <p align="center">
-  <img src="./assets/icons/500x500.png" alt="MongoLens Logo" width="120" height="120" style="border-radius: 14px;" />
-
+  <img src="./assets/icons/500x500-rounded.png" alt="MongoLens Logo" width="120" height="120"/>
 </p>
 
 <h1 align="center">Mongo-Lens</h1>
