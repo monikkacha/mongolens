@@ -18,6 +18,8 @@ public class MongoService {
 
     public void connectToMongoDB(String mongoUri) {
         mongoClient = MongoClients.create(mongoUri);
+        // Docker localhost connection
+        // mongodb://host.docker.internal:27017
     }
 
     public List<String> getDatabase() {
