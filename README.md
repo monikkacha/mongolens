@@ -6,6 +6,10 @@
 
 MongoLens is an open-source tool for visualizing and interacting with MongoDB databases. It features a React frontend and a Java 17 backend.
 
+<p align="center">
+  <img src="./assets/screenshot/Design Canvas.png" alt="MongoLens Logo" />
+</p>
+
 # Project Roadmap
 
 ### Features
@@ -19,7 +23,7 @@ MongoLens is an open-source tool for visualizing and interacting with MongoDB da
     - [ ] Performing CRUD operations
     - [ ] Preview on right side
 
-### Dec.2024 Tasks
+### Jan.2024 Tasks
 
 - [ ] Designing figma
   - [ ] Connect mongo screen
