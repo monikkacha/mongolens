@@ -521,6 +521,18 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@radix-ui/react-compose-refs@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-compose-refs/-/react-compose-refs-1.1.1.tgz#6f766faa975f8738269ebb8a23bad4f5a8d2faec"
+  integrity sha512-Y9VzoRDSJtgFMUCoiZBDVo084VQ5hfpXxVE+NgkdNsjiDBByiImMZKKhxMwCbdHvhlENG6a833CbFkOQvTricw==
+
+"@radix-ui/react-slot@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-1.1.1.tgz#ab9a0ffae4027db7dc2af503c223c978706affc3"
+  integrity sha512-RApLLOcINYJA+dMVbOju7MYv1Mb2EBp2nH4HdDzXTSyaR5optlm6Otrz1euW3HbdOR8UmmFK06TD+A9frYWv+g==
+  dependencies:
+    "@radix-ui/react-compose-refs" "1.1.1"
+
 "@rollup/rollup-android-arm-eabi@4.28.1":
   version "4.28.1"
   resolved "https://registry.yarnpkg.com/@rollup/rollup-android-arm-eabi/-/rollup-android-arm-eabi-4.28.1.tgz#7f4c4d8cd5ccab6e95d6750dbe00321c1f30791e"
