@@ -23,7 +23,7 @@ MongoLens is an open-source tool for visualizing and interacting with MongoDB da
     - [ ] Performing CRUD operations
     - [ ] Preview on right side
 
-### Jan.2024 Tasks
+### Feb.2024 Tasks
 
 - [ ] Designing figma
   - [ ] Connect mongo screen
