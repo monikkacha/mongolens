@@ -70,20 +70,6 @@ These features enhance the functionality and user experience, especially for mor
   - Auto-completion for MongoDB commands (e.g., fields, operators)
   - Query autocompletion in the query bar
 
-These are additional features that could be implemented later for more specialized use cases, such as advanced monitoring, security, or integrations with other tools.
-
-- **Advanced Security Features**
-  - IP whitelisting for enhanced security
-  - Two-factor authentication (2FA) for MongoDB connections
-  - Encryption of sensitive data at rest
-- **Collaboration Features**
-  - Shared workspace for team collaboration on databases
-  - Commenting and notes for team members within collections/documents
-- **Cloud Service Integrations**
-  - Integration with MongoDB Atlas or other cloud services for seamless database management
-- **Multi-Cloud/Hybrid Cloud Support**
-  - Manage multiple cloud instances (e.g., AWS, Azure, GCP) from within the app
-
 ### Feb.2024 Tasks
 
 - [ ] Designing figma
