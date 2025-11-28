@@ -1,9 +1,0 @@
-/* src/index.css */
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  background-color: #080e0e;
-}
