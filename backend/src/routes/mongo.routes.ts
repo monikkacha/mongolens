@@ -9,5 +9,6 @@ router.post("/collections", asyncHandler(MongoController.listCollections));
 
 router.post("/query/find", asyncHandler(MongoController.runFindQuery));
 router.post("/query/aggregate", asyncHandler(MongoController.runAggregation));
+router.post("/connection/test", asyncHandler(MongoController.testConnection));
 
 export default router;

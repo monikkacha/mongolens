@@ -1,7 +1,21 @@
 import { Request, Response } from "express";
 import { MongoService } from "../services/mongo.service";
+import { MongoConnectionManager } from "../config/mongo";
 
 export class MongoController {
+  static async testConnection(req: Request, res: Response) {
+    const { connectionString, connId = "test" } = req.body;
+
+    const client = await MongoConnectionManager.getClient(
+      connectionString,
+      connId
+    );
+
+    await client.db().command({ ping: 1 });
+
+    return res.json({ success: true, message: "Connection successful" });
+  }
+
   static async listDatabases(req: Request, res: Response) {
     const { connectionString, connId = "default" } = req.body;
     const databases = await MongoService.listDatabases(
