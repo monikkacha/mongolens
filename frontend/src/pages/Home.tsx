@@ -142,12 +142,12 @@ const HomePage: React.FC = () => {
         {/* RIGHT – 3D / image showcase */}
         <div className="hidden lg:flex items-center justify-center relative">
           <div className="relative ">
-            {/* placeholder for your 3D isometric image or canvas */}
+            {/* placeholder for your 3D isometric image or canvas
             <img
               src={Lock} // replace with your 3D image path
               alt="3D MongoDB"
               className="h-[800px] w-[800px] animate-pulse"
-            />
+            /> */}
             <div className="absolute -inset-6 rounded-full bg-emerald-500/10 blur-3xl" />
           </div>
         </div>
