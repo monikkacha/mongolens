@@ -13,7 +13,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { testConnection } from "@/services/apis/connection";
-import Lock from "../assets/lock.png";
+import Database from "../assets/Mydatabase.png";
+import Logo from "../assets/logo.png";
 
 interface SavedConnection {
   id: string;
@@ -53,48 +54,97 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-black via-[#0b0f17] to-[#0c1a24] text-white overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-[#1F2933] via-[#364156] to-[#1F2933] text-white overflow-hidden">
+
       {/* ambient glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-24 left-16 w-48 h-48 rounded-full bg-green-700/20 blur-3xl" />
-        <div className="absolute bottom-24 right-24 w-72 h-72 rounded-full bg-cyan-600/10 blur-3xl" />
+        <div className="absolute top-24 left-16 w-52 h-52 rounded-full bg-[#7FC8F8]/20 blur-3xl" />
+        <div className="absolute bottom-24 right-24 w-72 h-72 rounded-full bg-[#4A5D73]/20 blur-3xl" />
       </div>
 
       {/* saved connections */}
-      <div className="absolute right-6 top-6 z-20">
+      <div className="absolute right-20 top-20 z-20">
         <Dialog>
           <DialogTrigger asChild>
             <Button
               variant="ghost"
-              className="text-neutral-300 hover:bg-neutral-800/60 backdrop-blur-sm border border-neutral-700/40"
+              className="
+              bg-[#1C2541]
+            text-[#95a2ba]
+            hover:text-white
+            hover:bg-[#2C3646]/70
+            backdrop-blur-md
+            border-[#b6c2d9]
+            shadow-md
+            rounded-full
+          "
             >
               <Star className="h-6 w-6" />
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-neutral-900/90 border border-neutral-700 backdrop-blur-xl text-white">
+
+          <DialogContent className="
+        bg-[#2C3646]/95
+        border border-[#4A5D73]
+        backdrop-blur-xl
+        text-white
+        shadow-2xl
+        rounded-2xl
+      ">
             <DialogHeader>
-              <DialogTitle>Saved Connections</DialogTitle>
+              <DialogTitle className="text-lg tracking-wide">
+                Saved Connections
+              </DialogTitle>
             </DialogHeader>
+
             <ScrollArea className="max-h-80 pr-4">
-              <div className="space-y-3 mt-3">
+              <div className="space-y-4 mt-4">
                 {savedConnections.map((conn) => (
                   <Card
                     key={conn.id}
-                    className="bg-neutral-800/70 border border-neutral-700 hover:bg-neutral-700/50 transition"
+                    className="
+                  bg-[#364156]/80
+                  border border-[#4A5D73]
+                  hover:bg-[#364156]
+                  transition-all
+                  rounded-xl
+                  shadow-md
+                "
                   >
-                    <CardHeader>
-                      <CardTitle className="text-sm">{conn.name}</CardTitle>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm text-white">
+                        {conn.name}
+                      </CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-xs text-neutral-400 break-all">
+
+                    <CardContent className="space-y-3">
+                      <p className="text-xs text-[#B6C2D9] break-all">
                         {conn.connectionString}
                       </p>
-                      <div className="flex gap-2 mt-3">
-                        <Button size="sm" variant="secondary">Edit</Button>
+
+                      <div className="flex gap-2">
                         <Button
                           size="sm"
-                          variant="destructive"
+                          className="
+                        bg-[#4A5D73]
+                        hover:bg-[#2498e6]
+                        text-white
+                        hover:text-[#1F2933]
+                        transition
+                      "
+                        >
+                          Edit
+                        </Button>
+
+                        <Button
+                          size="sm"
                           onClick={() => handleDelete(conn.id)}
+                          className="
+                        bg-[#E5533D]/90
+                        hover:bg-[#e72b0e]
+                        text-white
+                        transition
+                      "
                         >
                           Delete
                         </Button>
@@ -108,30 +158,49 @@ const HomePage: React.FC = () => {
         </Dialog>
       </div>
 
+
       {/* main split layout */}
-      <div className="relative z-10 grid min-h-screen grid-cols-1 lg:grid-cols-2">
+      <div className="relative z-10 grid min-h-screen grid-cols-1 lg:grid-cols-2 bg-[#1C2541]">
         {/* LEFT – content */}
         <div className="flex items-center justify-center px-6">
-          <Card className="w-full max-w-md bg-neutral-900/80 border border-neutral-700 backdrop-blur-xl shadow-2xl">
-            <CardHeader>
-              <CardTitle className="text-3xl font-semibold tracking-wide">
+          <Card className="w-full max-w-lg bg-[#232F5A]/90 border border-[#3A4A7A] backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] rounded-2xl">
+
+            <CardHeader className="space-y-1">
+              <CardTitle className="text-3xl font-semibold tracking-wide text-white">
                 MongoDB Connection
               </CardTitle>
-              <p className="text-sm text-neutral-400 mt-1">
+              <p className="text-sm text-[#B8C1EC]">
                 Connect, test, and manage your database sessions
               </p>
             </CardHeader>
-            <CardContent className="space-y-5">
+
+            <CardContent className="space-y-6">
               <Input
                 placeholder="mongodb://localhost:27017"
                 value={connectionString}
                 onChange={(e) => setConnectionString(e.target.value)}
-                className="bg-neutral-800/70 border-neutral-700 text-white"
+                className="
+            bg-[#2E3A6E] 
+            border border-[#3A4A7A] 
+            text-white 
+            placeholder:text-[#B8C1EC]
+            focus:border-[#5BC0BE]
+            focus:ring-[#5BC0BE]
+          "
               />
+
               <Button
-                className="w-full bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-500 hover:to-emerald-400 shadow-lg"
                 onClick={handleConnect}
                 disabled={loading || !connectionString}
+                className="
+            w-full 
+            bg-gradient-to-from-[#5BC0BE] to-[#3A86FF]
+            hover:from-[#6FFFE9] hover:to-[#5BC0BE]
+            text-[#1C2541]
+            font-semibold
+            shadow-lg
+            transition-all duration-300
+          "
               >
                 {loading ? "Connecting..." : "Connect"}
               </Button>
@@ -139,31 +208,27 @@ const HomePage: React.FC = () => {
           </Card>
         </div>
 
+
         {/* RIGHT – 3D / image showcase */}
-        <div className="hidden lg:flex items-center justify-center relative">
-          <div className="relative ">
-            {/* placeholder for your 3D isometric image or canvas
+        {/* RIGHT SIDE WRAPPER – creates space from screen */}
+        <div className="hidden lg:flex items-center justify-center min-h-screen p-12 bg-[#1C2541]">
+
+          {/* RIGHT PANEL – your blue design */}
+          <div className="relative flex items-center justify-center w-full h-full bg-[#3A506B] rounded-[48px] overflow-hidden">
+            <img src={Logo}
+              className="absolute top-20 w-[90px] h-[90px]" />
+            <p className="absolute top-50 left-1/2 -translate-x-1/2 tracking-wide text-[#ffffff] text-4xl font-semibold">
+              Welcome to mongolens
+            </p>
             <img
-              src={Lock} // replace with your 3D image path
-              alt="3D MongoDB"
-              className="h-[800px] w-[800px] animate-pulse"
-            /> */}
-            <div className="absolute -inset-6 rounded-full bg-emerald-500/10 blur-3xl" />
+              src={Database}
+              alt="Illustration"
+              className="mt-40 w-[75%] max-w-[700px] h-auto object-contain"
+            />
+
           </div>
         </div>
       </div>
-
-      {/* floating animation */}
-      <style>{`
-        @keyframes float {
-          0% { transform: translateY(0); }
-          50% { transform: translateY(-12px); }
-          100% { transform: translateY(0); }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 };
