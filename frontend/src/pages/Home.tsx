@@ -13,8 +13,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { testConnection } from "@/services/apis/connection";
-import Database from "../assets/Mydatabase.png";
-import Logo from "../assets/logo.png";
+import Logo from "@/assets/logo.png";
+
 
 interface SavedConnection {
   id: string;
@@ -57,13 +57,13 @@ const HomePage: React.FC = () => {
     <div className="relative min-h-screen bg-gradient-to-br from-[#1F2933] via-[#364156] to-[#1F2933] text-white overflow-hidden">
 
       {/* ambient glows */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-24 left-16 w-52 h-52 rounded-full bg-[#7FC8F8]/20 blur-3xl" />
         <div className="absolute bottom-24 right-24 w-72 h-72 rounded-full bg-[#4A5D73]/20 blur-3xl" />
-      </div>
+      </div> */}
 
       {/* saved connections */}
-      <div className="absolute right-20 top-20 z-20">
+      <div className="absolute right-6 top-10 z-20">
         <Dialog>
           <DialogTrigger asChild>
             <Button
@@ -160,17 +160,16 @@ const HomePage: React.FC = () => {
 
 
       {/* main split layout */}
-      <div className="relative z-10 grid min-h-screen grid-cols-1 lg:grid-cols-2 bg-[#1C2541]">
-        {/* LEFT – content */}
+      <div className="relative z-10 min-h-screen grid-cols-1 lg:grid-cols-2 bg-[#080e0e]">
         <div className="flex items-center justify-center px-6">
-          <Card className="w-full max-w-lg bg-[#232F5A]/90 border border-[#3A4A7A] backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] rounded-2xl">
+          <Card className=" absolute space-y-6 top-70 w-full max-w-lg bg-[#080e0e]/90 border border-red-700 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] rounded-2xl">
 
             <CardHeader className="space-y-1">
               <CardTitle className="text-3xl font-semibold tracking-wide text-white">
-                MongoDB Connection
+                <img src={Logo} className="w-[90px] h-[90px] top-282 left-623 rounded-full mx-auto" />
               </CardTitle>
-              <p className="text-sm text-[#B8C1EC]">
-                Connect, test, and manage your database sessions
+              <p className="text-[24px] text-center letter-space-0 h-100% text-[#F6F6F6] font-Roboto ">
+                A new way to browse MongoDB data
               </p>
             </CardHeader>
 
@@ -192,43 +191,19 @@ const HomePage: React.FC = () => {
               <Button
                 onClick={handleConnect}
                 disabled={loading || !connectionString}
-                className="
-            w-full 
-            bg-gradient-to-from-[#5BC0BE] to-[#3A86FF]
-            hover:from-[#6FFFE9] hover:to-[#5BC0BE]
-            text-[#1C2541]
-            font-semibold
-            shadow-lg
-            transition-all duration-300
-          "
-              >
+                className="bg-[#61BAB9] bg-hover:none font-Roboto text-[#ffffff] size-18px rounded-[4px] w-[160px] h-[60px] top-535px left-867px font-medium">
                 {loading ? "Connecting..." : "Connect"}
               </Button>
             </CardContent>
           </Card>
         </div>
-
-
-        {/* RIGHT – 3D / image showcase */}
-        {/* RIGHT SIDE WRAPPER – creates space from screen */}
-        <div className="hidden lg:flex items-center justify-center min-h-screen p-12 bg-[#1C2541]">
-
-          {/* RIGHT PANEL – your blue design */}
-          <div className="relative flex items-center justify-center w-full h-full bg-[#3A506B] rounded-[48px] overflow-hidden">
-            <img src={Logo}
-              className="absolute top-20 w-[90px] h-[90px]" />
-            <p className="absolute top-50 left-1/2 -translate-x-1/2 tracking-wide text-[#ffffff] text-4xl font-semibold">
-              Welcome to mongolens
-            </p>
-            <img
-              src={Database}
-              alt="Illustration"
-              className="mt-40 w-[75%] max-w-[700px] h-auto object-contain"
-            />
-
-          </div>
-        </div>
       </div>
+
+      {/* <footer className="px-8 py-28 flex text-center justify-center">
+        <div className="mt-6 text-sm font-normal text-red-500 bg-amber-100">
+          <p>Hi welcome to mongolenss</p>
+        </div>
+      </footer> */}
     </div>
   );
 };
