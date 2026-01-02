@@ -54,7 +54,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#1F2933] via-[#364156] to-[#1F2933] text-white overflow-hidden">
+    <div className="relative min-h-screen bg-[#080e0e] text-white overflow-hidden">
 
       {/* ambient glows */}
       {/* <div className="absolute inset-0 pointer-events-none">
@@ -160,38 +160,31 @@ const HomePage: React.FC = () => {
 
 
       {/* main split layout */}
-      <div className="relative z-10 min-h-screen grid-cols-1 lg:grid-cols-2 bg-[#080e0e]">
+      <div className="relative min-h-screen bg-[#080e0e]">
         <div className="flex items-center justify-center px-6">
-          <Card className=" absolute space-y-6 top-70 w-full max-w-lg bg-[#080e0e]/90 border border-red-700 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] rounded-2xl">
+          <Card className="absolute flex justify-center top-[282px] left-[580px] w-[777px] h-[313px] bg-[#080e0e] border-0 ">
 
             <CardHeader className="space-y-1">
               <CardTitle className="text-3xl font-semibold tracking-wide text-white">
                 <img src={Logo} className="w-[90px] h-[90px] top-282 left-623 rounded-full mx-auto" />
               </CardTitle>
-              <p className="text-[24px] text-center letter-space-0 h-100% text-[#F6F6F6] font-Roboto ">
+              <p className="text-[24px] text-center p-3 letter-space-0 h-100% text-[#F6F6F6] font-Roboto ">
                 A new way to browse MongoDB data
               </p>
             </CardHeader>
 
-            <CardContent className="space-y-6">
+            <CardContent className="flex items-center gap-4 p-0">
               <Input
-                placeholder="mongodb://localhost:27017"
+                placeholder="mongodb://localhost:27017 "
                 value={connectionString}
                 onChange={(e) => setConnectionString(e.target.value)}
-                className="
-            bg-[#2E3A6E] 
-            border border-[#3A4A7A] 
-            text-white 
-            placeholder:text-[#B8C1EC]
-            focus:border-[#5BC0BE]
-            focus:ring-[#5BC0BE]
-          "
+                className="w-[600px] h-[60px] bg-[#1B1E1F] rounded-sm pl-6 text-9xl text-white border-0 font-light placeholder:text-white placeholder:font-light placeholder:text-[24px]"
               />
 
               <Button
                 onClick={handleConnect}
                 disabled={loading || !connectionString}
-                className="bg-[#61BAB9] bg-hover:none font-Roboto text-[#ffffff] size-18px rounded-[4px] w-[160px] h-[60px] top-535px left-867px font-medium">
+                className="bg-[#61BAB9] hover:bg-[#61BAB9] font-Roboto font-medium text-[#ffffff] rounded-sm text-[18px] w-[160px] h-[60px] top-[535px] left-[867px]">
                 {loading ? "Connecting..." : "Connect"}
               </Button>
             </CardContent>
