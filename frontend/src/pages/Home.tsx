@@ -63,31 +63,12 @@ const HomePage: React.FC = () => {
           <DialogTrigger asChild>
             <Button
               variant="ghost"
-              className="
-              bg-[#1C2541]
-            text-[#95a2ba]
-            hover:text-white
-            hover:bg-[#2C3646]/70
-            backdrop-blur-md
-            border-[#b6c2d9]
-            shadow-md
-            rounded-full
-          "
+              className="bg-[#1C2541] text-[#95a2ba] hover:text-white hover:bg-[#2C3646]/70 backdrop-blur-md border-[#b6c2d9] shadow-md rounded-full"
             >
               <Star className="h-6 w-6" />
             </Button>
           </DialogTrigger>
-
-          <DialogContent
-            className="
-        bg-[#2C3646]/95
-        border border-[#4A5D73]
-        backdrop-blur-xl
-        text-white
-        shadow-2xl
-        rounded-2xl
-      "
-          >
+          <DialogContent className="bg-[#2C3646]/95 border border-[#4A5D73] backdrop-blur-xl text-white shadow-2xl rounded-2xl">
             <DialogHeader>
               <DialogTitle className="text-lg tracking-wide">
                 Saved Connections
@@ -99,14 +80,7 @@ const HomePage: React.FC = () => {
                 {savedConnections.map((conn) => (
                   <Card
                     key={conn.id}
-                    className="
-                  bg-[#364156]/80
-                  border border-[#4A5D73]
-                  hover:bg-[#364156]
-                  transition-all
-                  rounded-xl
-                  shadow-md
-                "
+                    className="bg-[#364156]/80 border border-[#4A5D73] hover:bg-[#364156] transition-all rounded-xl shadow-md"
                   >
                     <CardHeader className="pb-2">
                       <CardTitle className="text-sm text-white">
@@ -122,13 +96,7 @@ const HomePage: React.FC = () => {
                       <div className="flex gap-2">
                         <Button
                           size="sm"
-                          className="
-                        bg-[#4A5D73]
-                        hover:bg-[#2498e6]
-                        text-white
-                        hover:text-[#1F2933]
-                        transition
-                      "
+                          className=" bg-[#4A5D73] hover:bg-[#2498e6] text-white hover:text-[#1F2933] transition"
                         >
                           Edit
                         </Button>
@@ -167,8 +135,7 @@ const HomePage: React.FC = () => {
 
             <CardContent className="flex items-center gap-4 p-0">
               <Input
-                placeholder="
-                mongodb://localhost:27017 "
+                placeholder="mongodb://localhost:27017 "
                 value={connectionString}
                 onChange={(e) => setConnectionString(e.target.value)}
                 className="w-[600px] h-[60px] bg-[#1B1E1F] rounded-sm pl-6 text-9xl text-white border-0 font-light placeholder:text-white placeholder:font-light placeholder:text-[24px]"
