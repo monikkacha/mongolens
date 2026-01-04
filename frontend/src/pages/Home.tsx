@@ -14,6 +14,7 @@ import { Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { testConnection } from "@/services/apis/connection";
 import Logo from "@/assets/logo.png";
+import { FaGithub } from "react-icons/fa";
 
 interface SavedConnection {
   id: string;
@@ -118,17 +119,17 @@ const HomePage: React.FC = () => {
         </Dialog>
       </div>
 
-      <div className="relative min-h-screen bg-[#080e0e]">
+      <div className="relative flex flex-col min-h-screen bg-[#080e0e]">
         <div className="flex items-center justify-center px-6">
-          <Card className="absolute flex justify-center top-[282px] left-[580px] w-[777px] h-[313px] bg-[#080e0e] border-0 ">
-            <CardHeader className="space-y-1">
+          <Card className="absolute flex justify-center top-[282px] space-y-20 left-[580px] w-[777px] h-[313px] bg-[#080e0e] border-0 ">
+            <CardHeader className="space-y-4">
               <CardTitle className="text-3xl font-semibold tracking-wide text-white">
                 <img
                   src={Logo}
                   className="w-[90px] h-[90px] top-282 left-623 rounded-full mx-auto"
                 />
               </CardTitle>
-              <p className="text-[24px] text-center p-3 letter-space-0 h-100% text-[#F6F6F6] font-Roboto ">
+              <p className="text-[24px] text-center p-3 letter-space-0 text-[#F6F6F6] font-light font-roboto">
                 A new way to browse MongoDB data
               </p>
             </CardHeader>
@@ -138,18 +139,29 @@ const HomePage: React.FC = () => {
                 placeholder="mongodb://localhost:27017 "
                 value={connectionString}
                 onChange={(e) => setConnectionString(e.target.value)}
-                className="w-[600px] h-[60px] bg-[#1B1E1F] rounded-sm pl-6 text-9xl text-white border-0 font-light placeholder:text-white placeholder:font-light placeholder:text-[24px]"
+                className="w-[600px] h-[60px] bg-[#1B1E1F] font-roboto rounded-sm pl-6 text-white border-0 font-light placeholder:text-white placeholder:font-light placeholder:text-[24px]"
               />
 
               <Button
                 onClick={handleConnect}
                 disabled={loading || !connectionString}
-                className="bg-[#61BAB9] hover:bg-[#61BAB9] font-Roboto font-medium text-[#ffffff] rounded-sm text-[18px] w-[160px] h-[60px] top-[535px] left-[867px]"
+                className="bg-[#61BAB9] hover:bg-[#61BAB9] font-roboto font-medium text-[#ffffff] rounded-sm text-[18px] w-[160px] h-[60px] top-[535px] left-[867px]"
               >
                 {loading ? "Connecting..." : "Connect"}
               </Button>
             </CardContent>
           </Card>
+
+          <footer>
+            <div className="w-full h-16 left-0 fixed bottom-0 flex justify-center items-center font-roboto text-[#f6f6f6] text-[18px] font-light letter-space-0 h-100%">
+              <p className="flex items-center gap-2 p-0">
+                Any suggestion in mind ! or found a error,shoot us at
+                <a href="https://github.com/monikkacha/mongolens">
+                  <FaGithub className="w-20px h-19 top-2 left-2" />
+                </a>
+              </p>
+            </div>
+          </footer>
         </div>
       </div>
     </div>
