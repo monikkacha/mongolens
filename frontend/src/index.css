@@ -1,7 +1,16 @@
+@font-face {
+  font-family: Roboto;
+  src: url("frontend/src/assets/fonts/FiraCode-Light.ttf");
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-roboto: Roboto, "sans-serif";
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

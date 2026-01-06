@@ -13,6 +13,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { testConnection } from "@/services/apis/connection";
+import Logo from "@/assets/logo.png";
+import { FaGithub } from "react-icons/fa";
 
 interface SavedConnection {
   id: string;
@@ -37,16 +39,15 @@ const HomePage: React.FC = () => {
     setLoading(true);
     try {
       const res = await testConnection(connectionString);
-
       if (res.data.success) {
-        navigate("/connections", {
-          state: {
-            connectionString,
-          },
-        });
+        navigate("/connections", { state: { connectionString } });
       }
-    } catch (error: any) {
-      alert(error.response?.data?.message || "Connection failed");
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message || "Connection failed");
+      } else {
+        alert("Connection failed");
+      }
     } finally {
       setLoading(false);
     }
@@ -57,63 +58,54 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-black via-[#0b0f17] to-[#0c1a24] text-white p-6 relative overflow-hidden">
-      {/* Floating Glow Effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-40 h-40 rounded-full bg-green-700/20 blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-56 h-56 rounded-full bg-cyan-600/10 blur-3xl" />
-      </div>
-
-      {/* Saved Connections Button */}
-      <div className="absolute right-6 top-6 z-20">
+    <div className="relative min-h-screen bg-[#080e0e] text-white overflow-hidden">
+      <div className="absolute right-6 top-10 z-20">
         <Dialog>
           <DialogTrigger asChild>
             <Button
               variant="ghost"
-              className="text-neutral-300 hover:bg-neutral-800/60 backdrop-blur-sm border border-neutral-700/40"
+              className="bg-[#1C2541] text-[#95a2ba] hover:text-white hover:bg-[#2C3646]/70 backdrop-blur-md border-[#b6c2d9] shadow-md rounded-full"
             >
               <Star className="h-6 w-6" />
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-neutral-900/90 border border-neutral-700 backdrop-blur-xl text-white">
+          <DialogContent className="bg-[#2C3646]/95 border border-[#4A5D73] backdrop-blur-xl text-white shadow-2xl rounded-2xl">
             <DialogHeader>
-              <DialogTitle>Saved Connections</DialogTitle>
+              <DialogTitle className="text-lg tracking-wide">
+                Saved Connections
+              </DialogTitle>
             </DialogHeader>
 
             <ScrollArea className="max-h-80 pr-4">
-              {savedConnections.length === 0 && (
-                <p className="text-sm text-neutral-400">
-                  No saved connections.
-                </p>
-              )}
-
-              <div className="space-y-3 mt-3">
+              <div className="space-y-4 mt-4">
                 {savedConnections.map((conn) => (
                   <Card
                     key={conn.id}
-                    className="bg-neutral-800/70 border border-neutral-700 hover:bg-neutral-700/50 transition-all"
+                    className="bg-[#364156]/80 border border-[#4A5D73] hover:bg-[#364156] transition-all rounded-xl shadow-md"
                   >
-                    <CardHeader>
-                      <CardTitle className="text-sm text-white tracking-wide">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm text-white">
                         {conn.name}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-xs text-neutral-400 break-all">
+
+                    <CardContent className="space-y-3">
+                      <p className="text-xs text-[#B6C2D9] break-all">
                         {conn.connectionString}
                       </p>
-                      <div className="flex gap-3 mt-3">
+
+                      <div className="flex gap-2">
                         <Button
                           size="sm"
-                          variant="secondary"
-                          className="bg-neutral-700 text-white hover:bg-neutral-600"
+                          className=" bg-[#4A5D73] hover:bg-[#2498e6] text-white hover:text-[#1F2933] transition"
                         >
                           Edit
                         </Button>
+
                         <Button
                           size="sm"
-                          variant="destructive"
                           onClick={() => handleDelete(conn.id)}
+                          className="bg-[#E5533D]/90 hover:bg-[#e72b0e] text-white transition"
                         >
                           Delete
                         </Button>
@@ -127,33 +119,50 @@ const HomePage: React.FC = () => {
         </Dialog>
       </div>
 
-      {/* Center Content */}
-      <div className="flex flex-1 items-center justify-center p-6 relative z-10">
-        <Card className="w-full max-w-md bg-neutral-900/80 border border-neutral-700 backdrop-blur-xl text-white shadow-xl">
-          <CardHeader>
-            <CardTitle className="text-2xl font-semibold text-center tracking-wide drop-shadow">
-              Connect to MongoDB
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
+      <div className="relative flex flex-col min-h-screen bg-[#080e0e]">
+        <div className="flex items-center justify-center px-6">
+          <Card className="absolute flex justify-center top-[282px] space-y-20 left-[580px] w-[777px] h-[313px] bg-[#080e0e] border-0 ">
+            <CardHeader className="space-y-4">
+              <CardTitle className="text-3xl font-semibold tracking-wide text-white">
+                <img
+                  src={Logo}
+                  className="w-[90px] h-[90px] top-282 left-623 rounded-full mx-auto"
+                />
+              </CardTitle>
+              <p className="text-[24px] text-center p-3 letter-space-0 text-[#F6F6F6] font-light font-roboto">
+                A new way to browse MongoDB data
+              </p>
+            </CardHeader>
+
+            <CardContent className="flex items-center gap-4 p-0">
               <Input
-                placeholder="mongodb://localhost:27017"
+                placeholder="mongodb://localhost:27017 "
                 value={connectionString}
                 onChange={(e) => setConnectionString(e.target.value)}
-                className="bg-neutral-800/70 border-neutral-700 text-white placeholder-neutral-500 backdrop-blur-sm"
+                className="w-[600px] h-[60px] bg-[#1B1E1F] font-roboto rounded-sm pl-6 text-white border-0 font-light placeholder:text-white placeholder:font-light placeholder:text-[24px]"
               />
 
               <Button
-                className="w-full bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-500 hover:to-emerald-400 text-white shadow-lg transition-all"
                 onClick={handleConnect}
                 disabled={loading || !connectionString}
+                className="bg-[#61BAB9] hover:bg-[#61BAB9] font-roboto font-medium text-[#ffffff] rounded-sm text-[18px] w-[160px] h-[60px] top-[535px] left-[867px]"
               >
                 {loading ? "Connecting..." : "Connect"}
               </Button>
+            </CardContent>
+          </Card>
+
+          <footer>
+            <div className="w-full h-16 left-0 fixed bottom-0 flex justify-center items-center font-roboto text-[#f6f6f6] text-[18px] font-light letter-space-0 h-100%">
+              <p className="flex items-center gap-2 p-0">
+                Any suggestion in mind ! or found a error,shoot us at
+                <a href="https://github.com/monikkacha/mongolens">
+                  <FaGithub className="w-20px h-19 top-2 left-2" />
+                </a>
+              </p>
             </div>
-          </CardContent>
-        </Card>
+          </footer>
+        </div>
       </div>
     </div>
   );
