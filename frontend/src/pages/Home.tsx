@@ -58,7 +58,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#080e0e] text-white overflow-hidden">
+    <div className="relative min-h-screen items-center bg-[#080e0e] text-white overflow-hidden flex flex-col">
       <div className="absolute right-6 top-10 z-20">
         <Dialog>
           <DialogTrigger asChild>
@@ -119,52 +119,52 @@ const HomePage: React.FC = () => {
         </Dialog>
       </div>
 
-      <div className="relative flex flex-col min-h-screen bg-[#080e0e]">
-        <div className="flex items-center justify-center px-6">
-          <Card className="absolute flex justify-center top-[282px] space-y-20 left-[580px] w-[777px] h-[313px] bg-[#080e0e] border-0 ">
-            <CardHeader className="space-y-4">
-              <CardTitle className="text-3xl font-semibold tracking-wide text-white">
-                <img
-                  src={Logo}
-                  className="w-[90px] h-[90px] top-282 left-623 rounded-full mx-auto"
-                />
-              </CardTitle>
-              <p className="text-[24px] text-center p-3 letter-space-0 text-[#F6F6F6] font-light font-roboto">
-                A new way to browse MongoDB data
-              </p>
-            </CardHeader>
-
-            <CardContent className="flex items-center gap-4 p-0">
-              <Input
-                placeholder="mongodb://localhost:27017 "
-                value={connectionString}
-                onChange={(e) => setConnectionString(e.target.value)}
-                className="w-[600px] h-[60px] bg-[#1B1E1F] font-roboto rounded-sm pl-6 text-white border-0 font-light placeholder:text-white placeholder:font-light placeholder:text-[24px]"
+      {/* <div className="min-h-screen bg-[#080e0e]"> */}
+      <div className="flex flex-1 items-center justify-center px-4">
+        <Card className="w-ful max-w-3xl space-y-20 bg-[#080e0e] border-0 ">
+          <CardHeader className="space-y-4 text-center">
+            <CardTitle className="text-3xl font-semibold tracking-wide text-white">
+              <img
+                src={Logo}
+                className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full mx-auto"
               />
+            </CardTitle>
+            <p className="text-[15px] sm:text-[20px] lg:text-[24px] text-center md:text-center lg-text-center mt-3 text-[#F6F6F6] font-light font-roboto">
+              A new way to browse MongoDB data
+            </p>
+          </CardHeader>
 
-              <Button
-                onClick={handleConnect}
-                disabled={loading || !connectionString}
-                className="bg-[#61BAB9] hover:bg-[#61BAB9] font-roboto font-medium text-[#ffffff] rounded-sm text-[18px] w-[160px] h-[60px] top-[535px] left-[867px]"
-              >
-                {loading ? "Connecting..." : "Connect"}
-              </Button>
-            </CardContent>
-          </Card>
+          <CardContent className="flex flex-col lg:flex-row items-stretch lg:items-center gap-4 ">
+            <Input
+              placeholder="mongodb://localhost:27017 "
+              value={connectionString}
+              onChange={(e) => setConnectionString(e.target.value)}
+              className="w-[200px] h-[60px] md:w-[400px] md:h-[60px] lg:w-[600px] lg:h-[60px] bg-[#1B1E1F] font-roboto rounded-sm pl-6 text-white border-0 font-light placeholder:text-white placeholder:font-light placeholder:text-[20px] placeholder:lg:text-[24px] placeholder:md:text-[21px]"
+            />
 
-          <footer>
-            <div className="w-full h-16 left-0 fixed bottom-0 flex justify-center items-center font-roboto text-[#f6f6f6] text-[18px] font-light letter-space-0 h-100%">
-              <p className="flex items-center gap-2 p-0">
-                Any suggestion in mind ! or found a error,shoot us at
-                <a href="https://github.com/monikkacha/mongolens">
-                  <FaGithub className="w-20px h-19 top-2 left-2" />
-                </a>
-              </p>
-            </div>
-          </footer>
-        </div>
+            <Button
+              onClick={handleConnect}
+              disabled={loading || !connectionString}
+              className="bg-[#61BAB9] hover:bg-[#61BAB9] font-roboto font-medium text-[#ffffff] rounded-sm text-[18px] w-[200px] h-[60px] md:w-[400px] md:h-[60px] lg:w-[160px] lg:h-[60px] lg:gap-4 "
+            >
+              {loading ? "Connecting..." : "Connect"}
+            </Button>
+          </CardContent>
+        </Card>
+
+        <footer>
+          <div className="fixed bottom-2 left-0 w-full flex justify-center items-center font-roboto text-[#f6f6f6] text-[14px] md:text-[16px] lg:text-[18px] font-light letter-space-0 h-100%">
+            <p className="flex flex-col lg:flex-row items-center gap-2 p-0 text-center lg:text-center">
+              Any suggestion in mind ! or found a error,shoot us at
+              <a href="https://github.com/monikkacha/mongolens">
+                <FaGithub className="w-[20px] h-[19px] " />
+              </a>
+            </p>
+          </div>
+        </footer>
       </div>
     </div>
+    // </div>
   );
 };
 
