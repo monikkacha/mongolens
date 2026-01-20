@@ -139,13 +139,13 @@ const HomePage: React.FC = () => {
               placeholder="mongodb://localhost:27017 "
               value={connectionString}
               onChange={(e) => setConnectionString(e.target.value)}
-              className="w-[200px] h-[60px] md:w-[400px] md:h-[60px] lg:w-[600px] lg:h-[60px] bg-[#1B1E1F] font-roboto rounded-sm pl-6 text-white border-0 font-light placeholder:text-white placeholder:font-light placeholder:text-[20px] placeholder:lg:text-[24px] placeholder:md:text-[21px]"
+              className="w-[200px] h-[60px] md:w-[400px] md:h-[60px] lg:w-[600px] lg:h-[60px] bg-[#1B1E1F] font-['Roboto'] rounded-sm pl-6 text-white border-0 font-light placeholder:text-white placeholder:font-light placeholder:text-[20px] placeholder:lg:text-[24px] placeholder:md:text-[21px]"
             />
 
             <Button
               onClick={handleConnect}
               disabled={loading || !connectionString}
-              className="bg-[#61BAB9] hover:bg-[#61BAB9] font-roboto font-medium text-[#ffffff] rounded-sm text-[18px] w-[200px] h-[60px] md:w-[400px] md:h-[60px] lg:w-[160px] lg:h-[60px] lg:gap-4 "
+              className="bg-[#61BAB9] hover:bg-[#61BAB9] font-['Roboto']  font-medium text-[#ffffff] rounded-sm text-[18px] w-[200px] h-[60px] md:w-[400px] md:h-[60px] lg:w-[160px] lg:h-[60px] lg:gap-4 "
             >
               {loading ? "Connecting..." : "Connect"}
             </Button>
@@ -153,11 +153,11 @@ const HomePage: React.FC = () => {
         </Card>
 
         <footer>
-          <div className="fixed bottom-2 left-0 w-full flex justify-center items-center font-roboto text-[#f6f6f6] text-[14px] md:text-[16px] lg:text-[18px] font-light letter-space-0 h-100%">
-            <p className="flex flex-col lg:flex-row items-center gap-2 p-0 text-center lg:text-center">
-              Any suggestion in mind ! or found a error,shoot us at
+          <div className="fixed bottom-2 left-0 w-full flex justify-center items-center text-[#f6f6f6] text-[14px] md:text-[16px] lg:text-[18px] font-light letter-space-0 h-100%">
+            <p className="flex flex-col lg:flex-row items-center gap-2 p-0 text-center lg:text-center font-['Roboto'] ">
+              Any suggestion in mind ! or found a error, shoot us at
               <a href="https://github.com/monikkacha/mongolens">
-                <FaGithub className="w-[20px] h-[19px] " />
+                <FaGithub className="w-[19px] h-[19px] " />
               </a>
             </p>
           </div>

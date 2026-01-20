@@ -1,15 +1,22 @@
-@font-face {
-  font-family: Roboto;
-  src: url("frontend/src/assets/fonts/FiraCode-Light.ttf");
-}
-
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
-  --font-roboto: Roboto, "sans-serif";
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RubikBubbles";
+  src: url("/fonts/RubikBubbles-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme inline {
