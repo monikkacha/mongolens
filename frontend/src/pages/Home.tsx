@@ -59,7 +59,6 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="relative min-h-screen items-center bg-[#080e0e] text-white overflow-hidden flex flex-col">
-    <div className="relative min-h-screen items-center bg-[#080e0e] text-white overflow-hidden flex flex-col">
       <div className="absolute right-6 top-10 z-20">
         <Dialog>
           <DialogTrigger asChild>
@@ -134,20 +133,6 @@ const HomePage: React.FC = () => {
               A new way to browse MongoDB data
             </p>
           </CardHeader>
-      {/* <div className="min-h-screen bg-[#080e0e]"> */}
-      <div className="flex flex-1 items-center justify-center px-4">
-        <Card className="w-ful max-w-3xl space-y-20 bg-[#080e0e] border-0 ">
-          <CardHeader className="space-y-4 text-center">
-            <CardTitle className="text-3xl font-semibold tracking-wide text-white">
-              <img
-                src={Logo}
-                className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full mx-auto"
-              />
-            </CardTitle>
-            <p className="text-[15px] sm:text-[20px] lg:text-[24px] text-center md:text-center lg-text-center mt-3 text-[#F6F6F6] font-light font-roboto">
-              A new way to browse MongoDB data
-            </p>
-          </CardHeader>
 
           <CardContent className="flex flex-col lg:flex-row items-stretch lg:items-center gap-4 ">
             <Input
@@ -179,7 +164,6 @@ const HomePage: React.FC = () => {
         </footer>
       </div>
     </div>
-    // </div>
   );
 };
 
