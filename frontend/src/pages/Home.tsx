@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -59,45 +59,48 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="relative min-h-screen items-center bg-[#080e0e] text-white overflow-hidden flex flex-col">
-      <div className="absolute right-6 top-10 z-20">
-        <Dialog>
-          <DialogTrigger asChild>
+      <div className="absolute left-6 top-10 z-20">
+        <Sheet>
+          <SheetTrigger asChild>
             <Button
               variant="ghost"
               className="bg-[#1C2541] text-[#95a2ba] hover:text-white hover:bg-[#2C3646]/70 backdrop-blur-md border-[#b6c2d9] shadow-md rounded-full"
             >
               <Star className="h-6 w-6" />
             </Button>
-          </DialogTrigger>
-          <DialogContent className="bg-[#2C3646]/95 border border-[#4A5D73] backdrop-blur-xl text-white shadow-2xl rounded-2xl">
-            <DialogHeader>
-              <DialogTitle className="text-lg tracking-wide">
+          </SheetTrigger>
+
+          <SheetContent
+            side="left"
+            className="w-96 bg-pink-700 border-l border-[#4A5D73] backdrop-blur-xl text-white rounded-2xl"
+          >
+            <SheetHeader>
+              <img
+                src={Logo}
+                className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full mx-auto"
+              />
+              <SheetTitle className="text-lg tracking-wide text-white pt-20">
                 Saved Connections
-              </DialogTitle>
-            </DialogHeader>
+              </SheetTitle>
+            </SheetHeader>
 
-            <ScrollArea className="max-h-80 pr-4">
-              <div className="space-y-4 mt-4">
+            <ScrollArea className="h-[calc(100vh-100px)] pr-4 mt-6">
+              <div className="space-y-4">
                 {savedConnections.map((conn) => (
-                  <Card
-                    key={conn.id}
-                    className="bg-[#364156]/80 border border-[#4A5D73] hover:bg-[#364156] transition-all rounded-xl shadow-md"
-                  >
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-sm text-white">
-                        {conn.name}
-                      </CardTitle>
-                    </CardHeader>
+                  <div key={conn.id} className="bg-[#1C2541]/80 border-0 ">
+                    <div className="pb-2">
+                      <div className="text-sm text-white">{conn.name}</div>
+                    </div>
 
-                    <CardContent className="space-y-3">
-                      <p className="text-xs text-[#B6C2D9] break-all">
+                    <div className="space-y-3">
+                      <p className="text-xs text-white break-all">
                         {conn.connectionString}
                       </p>
 
                       <div className="flex gap-2">
                         <Button
                           size="sm"
-                          className=" bg-[#4A5D73] hover:bg-[#2498e6] text-white hover:text-[#1F2933] transition"
+                          className="bg-amber-500 hover:bg-[#2498e6] text-white hover:text-[#1F2933] transition"
                         >
                           Edit
                         </Button>
@@ -105,21 +108,20 @@ const HomePage: React.FC = () => {
                         <Button
                           size="sm"
                           onClick={() => handleDelete(conn.id)}
-                          className="bg-[#E5533D]/90 hover:bg-[#e72b0e] text-white transition"
+                          className="bg-amber-900 hover:bg-[#e72b0e] text-white transition"
                         >
                           Delete
                         </Button>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 ))}
               </div>
             </ScrollArea>
-          </DialogContent>
-        </Dialog>
+          </SheetContent>
+        </Sheet>
       </div>
 
-      {/* <div className="min-h-screen bg-[#080e0e]"> */}
       <div className="flex flex-1 items-center justify-center px-4">
         <Card className="w-ful max-w-3xl space-y-20 bg-[#080e0e] border-0 ">
           <CardHeader className="space-y-4 text-center">
