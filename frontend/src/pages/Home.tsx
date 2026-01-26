@@ -58,13 +58,15 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen items-center bg-[#080e0e] text-white overflow-hidden flex flex-col">
-      <div className="absolute left-6 top-10 z-20">
+    <div className="relative min-h-screen items-center bg-[#080e0e] overflow-hidden flex flex-col">
+      <div className="absolute left-10 top-15 z-20">
         <Sheet>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
-              className="bg-[#1C2541] text-[#95a2ba] hover:text-white hover:bg-[#2C3646]/70 backdrop-blur-md border-[#b6c2d9] shadow-md rounded-full"
+              className="h-11 w-11 rounded-full bg-[#0f1a1a] text-[#9fb3b3]
+                   hover:bg-[#162424] hover:text-white
+                   border border-[#1f2d2d] shadow-md"
             >
               <Star className="h-6 w-6" />
             </Button>
@@ -72,35 +74,34 @@ const HomePage: React.FC = () => {
 
           <SheetContent
             side="left"
-            className="w-96 bg-pink-700 border-l border-[#4A5D73] backdrop-blur-xl text-white rounded-2xl"
+            className="w-96 bg-[#1C2541] border-l border-[#4A5D73] backdrop-blur-xl text-gray-50 text-2xl rounded-2xl"
           >
-            <SheetHeader>
-              <img
-                src={Logo}
-                className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full mx-auto"
-              />
-              <SheetTitle className="text-lg tracking-wide text-white pt-20">
+            <SheetHeader className="pt-2 pb-6 px-6">
+              <SheetTitle className="text-3xl tracking-wide text-white pt-20 font-roboto">
                 Saved Connections
               </SheetTitle>
             </SheetHeader>
 
-            <ScrollArea className="h-[calc(100vh-100px)] pr-4 mt-6">
+            <ScrollArea className="flex-1 px-6">
               <div className="space-y-4">
                 {savedConnections.map((conn) => (
-                  <div key={conn.id} className="bg-[#1C2541]/80 border-0 ">
-                    <div className="pb-2">
-                      <div className="text-sm text-white">{conn.name}</div>
+                  <div
+                    key={conn.id}
+                    className="rounded-2xl bg-[#0f1a1a]/60   font-medium border border-[#1f2d2d] p-10"
+                  >
+                    <div className="text-xl text-white font-medium font-roboto mb-1">
+                      {conn.name}
                     </div>
 
                     <div className="space-y-3">
-                      <p className="text-xs text-white break-all">
+                      <p className="text-xs text-white break-all font-roboto">
                         {conn.connectionString}
                       </p>
 
-                      <div className="flex gap-2">
+                      <div className="fixed gap-2 justify-center bottom-10 left-5 right-5 flex flex-col border-t border-gray-500 pt-4">
                         <Button
                           size="sm"
-                          className="bg-amber-500 hover:bg-[#2498e6] text-white hover:text-[#1F2933] transition"
+                          className="bg-blue-500 hover:bg-[#2498e6] h-10 text-white hover:text-[#1F2933] transition"
                         >
                           Edit
                         </Button>
@@ -108,7 +109,7 @@ const HomePage: React.FC = () => {
                         <Button
                           size="sm"
                           onClick={() => handleDelete(conn.id)}
-                          className="bg-amber-900 hover:bg-[#e72b0e] text-white transition"
+                          className="bg-red-500 hover:bg-[#e72b0e] h-10 text-white transition font-roboto"
                         >
                           Delete
                         </Button>
